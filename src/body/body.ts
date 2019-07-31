@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  templateUrl: './body.component.html',
-  styleUrls: [ './body.component.css' ]
+  templateUrl: './body.html',
+  styleUrls: [ './body.css' ]
 })
-export class Body  {
-  name = 'Angular';
+export class BodyComponent  {
+  
 }

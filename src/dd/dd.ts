@@ -2,11 +2,25 @@ import { Component, Input, ComponentFactoryResolver, ChangeDetectorRef, Renderer
 import { DynamicDialogComponent } from 'primeng/dynamicdialog';
 import { DynamicDialogConfig } from 'primeng/components/dynamicdialog/dynamicdialog-config';
 import { DynamicDialogRef } from 'primeng/components/dynamicdialog/dynamicdialog-ref';
+import { trigger,state,style,transition,animate,AnimationEvent } from '@angular/animations';
+
 
 @Component({
-  selector: 'hello',
-  template: `<h1>Hello {{name}}!</h1>`,
-  styles: [`h1 { font-family: Lato; }`]
+  templateUrl: './dd.html',
+  styleUrls: ['./dd.css'],
+	animations: [
+        trigger('animation', [
+            state('void', style({
+                transform: 'translateX(-50%) translateY(-50%) scale(0.7)',
+                opacity: 0
+            })),
+            state('visible', style({
+                transform: 'translateX(-50%) translateY(-50%) scale(1)',
+                opacity: 1
+            })),
+            transition('* => *', animate('{{transitionParams}}'))
+        ])
+	]
 })
 export class DD extends DynamicDialogComponent  {
   @Input() name: string;
