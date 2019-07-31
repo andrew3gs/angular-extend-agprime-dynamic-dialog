@@ -20,7 +20,12 @@ export class AppComponent  {
         const ref = this.mydialogService.open(BodyComponent, {
             header: 'Choose a Car',
             width: '70%',
-            contentStyle: {"max-height": "350px", "overflow": "auto"}
+            contentStyle: {"max-height": "350px", "overflow": "auto"},
+            dismissableMask: true,
+            data: {
+              showHeaderCustomContent: true
+            },
+            footer: '<button type="button">Close Me</button>'
         });
 
         ref.onClose.subscribe(() =>{
