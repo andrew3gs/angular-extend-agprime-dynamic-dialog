@@ -9,14 +9,17 @@ import { DDService } from '../dd/ddservice';
 import { DD } from '../dd/dd';
 import { BodyComponent } from '../body/body'; 
 
-import { MessageService} from 'primeng/api';
+import { MessageService, DialogService} from 'primeng/api';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DynamicDialogComponent, DynamicDialogModule } from 'primeng/dynamicdialog';
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
+  imports:      [ BrowserModule, FormsModule, BrowserAnimationsModule, DynamicDialogModule ],
   declarations: [ AppComponent, HelloComponent, DD, BodyComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [ DDService, MessageService ],
+  providers: [ DDService, MessageService, DialogService ],
   entryComponents: [DD, BodyComponent]
 })
 export class AppModule { }

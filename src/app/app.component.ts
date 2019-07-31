@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
-import { MessageService} from 'primeng/api';
+import { MessageService, DialogService} from 'primeng/api';
 
-import { DDService } from '../dd/ddservice';
+import { DDService } from '../dd/ddservice'
+
 
 import { BodyComponent } from '../body/body';
 
@@ -13,10 +14,10 @@ import { BodyComponent } from '../body/body';
 })
 export class AppComponent  {
   name = 'Angular';
-   constructor(public dialogService: DDService, public messageService: MessageService) {}
+   constructor(public mydialogService: DDService, public messageService: MessageService,public dialogService: DialogService) {}
 
     show() {
-        const ref = this.dialogService.open(BodyComponent, {
+        const ref = this.mydialogService.open(BodyComponent, {
             header: 'Choose a Car',
             width: '70%',
             contentStyle: {"max-height": "350px", "overflow": "auto"}
@@ -26,4 +27,16 @@ export class AppComponent  {
             
         });
     }
+
+    show2() {
+      const ref = this.dialogService.open(BodyComponent, {
+          header: 'Choose a Car',
+          width: '70%',
+          contentStyle: {"max-height": "350px", "overflow": "auto"}
+      });
+
+      ref.onClose.subscribe(() =>{
+          
+      });
+  }
 }
